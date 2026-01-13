@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--GameVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GameVC" customModule="IP14_Wordle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wordle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neB-V0-WaR">
+                                <rect key="frame" x="150" y="179" width="93" height="25"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-QA-EB2" customClass="TextView" customModule="IP14_Wordle" customModuleProvider="target">
+                                <rect key="frame" x="110" y="254" width="173" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartInsertDeleteType="no"/>
+                                <connections>
+                                    <action selector="enterWord:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="MzG-b1-94x"/>
+                                </connections>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZcS-sI-BKA" userLabel="Controls">
+                                <rect key="frame" x="10" y="79" width="373" height="34.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-bb-QED">
+                                        <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="?"/>
+                                        <connections>
+                                            <segue destination="mw6-Ob-2BI" kind="show" id="4Pg-je-SNE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqb-JN-nCD">
+                                        <rect key="frame" x="236.66666666666663" y="0.0" width="136.33333333333337" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="⚙"/>
+                                        <connections>
+                                            <segue destination="efW-4d-uL9" kind="show" id="rPx-Rf-3RG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Yvl-nW-lYY" userLabel="Board">
+                                <rect key="frame" x="40" y="335" width="313" height="379.66666666666674"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6My-bF-Zg0" userLabel="acrossBoard">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="46.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdk-5S-Epe" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcd-nT-Heu" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="66.666666666666671" y="0.0" width="46.666666666666671" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-Cf-FhU" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="133.33333333333334" y="0.0" width="46.333333333333343" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVZ-7f-unH" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="199.66666666666666" y="0.0" width="46.666666666666657" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNC-kL-W1U" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="266.33333333333331" y="0.0" width="46.666666666666686" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="DNC-kL-W1U" firstAttribute="width" secondItem="Tdk-5S-Epe" secondAttribute="height" multiplier="12:12" id="9FG-3s-gdO"/>
+                                            <constraint firstItem="xcd-nT-Heu" firstAttribute="width" secondItem="eRr-Cf-FhU" secondAttribute="height" multiplier="12:12" id="Ppn-LM-Scs"/>
+                                            <constraint firstItem="Tdk-5S-Epe" firstAttribute="width" secondItem="xcd-nT-Heu" secondAttribute="height" multiplier="12:12" id="huS-6a-N0f"/>
+                                            <constraint firstItem="RVZ-7f-unH" firstAttribute="width" secondItem="DNC-kL-W1U" secondAttribute="height" multiplier="12:12" id="jop-pj-YPB"/>
+                                            <constraint firstItem="eRr-Cf-FhU" firstAttribute="width" secondItem="RVZ-7f-unH" secondAttribute="height" multiplier="12:12" id="rvF-HT-HAD"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3PN-9D-b9F" userLabel="acrossBoard">
+                                        <rect key="frame" x="0.0" y="66.666666666666686" width="313" height="46.666666666666657"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMa-Mr-HP4" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQR-eK-RZd" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="66.666666666666671" y="0.0" width="46.666666666666671" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHl-bB-Woh" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="133.33333333333334" y="0.0" width="46.333333333333343" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SZ-e3-TIE" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="199.66666666666666" y="0.0" width="46.666666666666657" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CC-uG-sWz" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="266.33333333333331" y="0.0" width="46.666666666666686" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RQR-eK-RZd" firstAttribute="width" secondItem="RHl-bB-Woh" secondAttribute="height" multiplier="12:12" id="GBO-CD-H7R"/>
+                                            <constraint firstItem="0CC-uG-sWz" firstAttribute="width" secondItem="xMa-Mr-HP4" secondAttribute="height" multiplier="12:12" id="H34-6v-oON"/>
+                                            <constraint firstItem="3SZ-e3-TIE" firstAttribute="width" secondItem="0CC-uG-sWz" secondAttribute="height" multiplier="12:12" id="OXA-F5-FAU"/>
+                                            <constraint firstItem="RHl-bB-Woh" firstAttribute="width" secondItem="3SZ-e3-TIE" secondAttribute="height" multiplier="12:12" id="Vac-QV-hMW"/>
+                                            <constraint firstItem="xMa-Mr-HP4" firstAttribute="width" secondItem="RQR-eK-RZd" secondAttribute="height" multiplier="12:12" id="e73-pH-Ugs"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vez-A1-o5j" userLabel="acrossBoard">
+                                        <rect key="frame" x="0.0" y="133.33333333333331" width="313" height="46.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmg-vE-WMd" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="46.333333333333336"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="li6-ZJ-j4Q" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="66.666666666666671" y="0.0" width="46.666666666666671" height="46.333333333333336"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVf-Xd-0Si" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="133.33333333333334" y="0.0" width="46.333333333333343" height="46.333333333333336"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="13" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwQ-QM-0hO" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="199.66666666666666" y="0.0" width="46.666666666666657" height="46.333333333333336"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="14" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-LH-452" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="266.33333333333331" y="0.0" width="46.666666666666686" height="46.333333333333336"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2Fg-LH-452" firstAttribute="width" secondItem="Zmg-vE-WMd" secondAttribute="height" multiplier="12:12" id="FfF-Kh-vkU"/>
+                                            <constraint firstItem="li6-ZJ-j4Q" firstAttribute="width" secondItem="hVf-Xd-0Si" secondAttribute="height" multiplier="12:12" id="GJ9-p7-EUo"/>
+                                            <constraint firstItem="Zmg-vE-WMd" firstAttribute="width" secondItem="li6-ZJ-j4Q" secondAttribute="height" multiplier="12:12" id="MDv-PD-UPv"/>
+                                            <constraint firstItem="hVf-Xd-0Si" firstAttribute="width" secondItem="bwQ-QM-0hO" secondAttribute="height" multiplier="12:12" id="RYy-51-uBB"/>
+                                            <constraint firstItem="bwQ-QM-0hO" firstAttribute="width" secondItem="2Fg-LH-452" secondAttribute="height" multiplier="12:12" id="ul7-er-Fua"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NmB-qR-NXn" userLabel="acrossBoard">
+                                        <rect key="frame" x="0.0" y="199.66666666666663" width="313" height="46.666666666666657"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="15" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnv-ve-Vb1" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="16" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RJ-fn-ILQ" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="66.666666666666671" y="0.0" width="46.666666666666671" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="17" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzN-II-229" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="133.33333333333334" y="0.0" width="46.333333333333343" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="18" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C73-4f-naJ" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="199.66666666666666" y="0.0" width="46.666666666666657" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="19" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHj-3y-xn2" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="266.33333333333331" y="0.0" width="46.666666666666686" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rnv-ve-Vb1" firstAttribute="width" secondItem="3RJ-fn-ILQ" secondAttribute="height" multiplier="12:12" id="9bZ-vK-sRF"/>
+                                            <constraint firstItem="3RJ-fn-ILQ" firstAttribute="width" secondItem="jzN-II-229" secondAttribute="height" multiplier="12:12" id="C91-qM-u1Z"/>
+                                            <constraint firstItem="jzN-II-229" firstAttribute="width" secondItem="C73-4f-naJ" secondAttribute="height" multiplier="12:12" id="KoL-zC-ZrE"/>
+                                            <constraint firstItem="C73-4f-naJ" firstAttribute="width" secondItem="gHj-3y-xn2" secondAttribute="height" multiplier="12:12" id="PxQ-fY-vLe"/>
+                                            <constraint firstItem="gHj-3y-xn2" firstAttribute="width" secondItem="rnv-ve-Vb1" secondAttribute="height" multiplier="12:12" id="wLJ-zT-hoU"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w5C-0S-svi" userLabel="acrossBoard">
+                                        <rect key="frame" x="0.0" y="266.33333333333337" width="313" height="46.666666666666686"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAn-NL-Kia" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMg-mx-iaG" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="66.666666666666671" y="0.0" width="46.666666666666671" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="22" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDt-Jh-yex" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="133.33333333333334" y="0.0" width="46.333333333333343" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="23" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zz3-yE-QGm" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="199.66666666666666" y="0.0" width="46.666666666666657" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="24" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEL-sR-SSR" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="266.33333333333331" y="0.0" width="46.666666666666686" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="aAn-NL-Kia" firstAttribute="width" secondItem="VMg-mx-iaG" secondAttribute="height" multiplier="12:12" id="7T0-Kq-ncq"/>
+                                            <constraint firstItem="VMg-mx-iaG" firstAttribute="width" secondItem="KDt-Jh-yex" secondAttribute="height" multiplier="12:12" id="HMW-ib-ky9"/>
+                                            <constraint firstItem="KDt-Jh-yex" firstAttribute="width" secondItem="Zz3-yE-QGm" secondAttribute="height" multiplier="12:12" id="QmE-WZ-mbM"/>
+                                            <constraint firstItem="Zz3-yE-QGm" firstAttribute="width" secondItem="pEL-sR-SSR" secondAttribute="height" multiplier="12:12" id="jK6-F1-3th"/>
+                                            <constraint firstItem="pEL-sR-SSR" firstAttribute="width" secondItem="aAn-NL-Kia" secondAttribute="height" multiplier="12:12" id="mpd-XD-C51"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JEe-B4-yvJ" userLabel="acrossBoard">
+                                        <rect key="frame" x="0.0" y="333" width="313" height="46.666666666666686"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7It-ZR-tso" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="26" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZd-yI-U0y" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="66.666666666666671" y="0.0" width="46.666666666666671" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="27" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qib-Ak-yWV" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="133.33333333333334" y="0.0" width="46.333333333333343" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="28" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-dH-74Z" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="199.66666666666666" y="0.0" width="46.666666666666657" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="29" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAm-3L-saP" customClass="LetterTile" customModule="IP14_Wordle" customModuleProvider="target">
+                                                <rect key="frame" x="266.33333333333331" y="0.0" width="46.666666666666686" height="46.666666666666664"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="nZd-yI-U0y" firstAttribute="width" secondItem="Qib-Ak-yWV" secondAttribute="height" multiplier="12:12" id="9e6-R8-Krv"/>
+                                            <constraint firstItem="Qib-Ak-yWV" firstAttribute="width" secondItem="Lnr-dH-74Z" secondAttribute="height" multiplier="12:12" id="V7c-J6-ZKU"/>
+                                            <constraint firstItem="Lnr-dH-74Z" firstAttribute="width" secondItem="CAm-3L-saP" secondAttribute="height" multiplier="12:12" id="b0k-tE-3g6"/>
+                                            <constraint firstItem="CAm-3L-saP" firstAttribute="width" secondItem="7It-ZR-tso" secondAttribute="height" multiplier="12:12" id="eYY-gM-BRp"/>
+                                            <constraint firstItem="7It-ZR-tso" firstAttribute="width" secondItem="nZd-yI-U0y" secondAttribute="height" multiplier="12:12" id="zZq-g3-ZCn"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dead Letters: " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COv-Ry-Df1">
+                                <rect key="frame" x="40" y="747.66666666666663" width="313" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMs-gF-1RT">
+                                <rect key="frame" x="160" y="747.66666666666663" width="193" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="COv-Ry-Df1" firstAttribute="leading" secondItem="Yvl-nW-lYY" secondAttribute="leading" id="2jq-YO-0HP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HMs-gF-1RT" secondAttribute="trailing" constant="40" id="5e3-EJ-gjo"/>
+                            <constraint firstItem="Yvl-nW-lYY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="DzZ-5b-XOW"/>
+                            <constraint firstItem="COv-Ry-Df1" firstAttribute="trailing" secondItem="Yvl-nW-lYY" secondAttribute="trailing" id="E9d-qa-iNw"/>
+                            <constraint firstItem="neB-V0-WaR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="EB3-PR-mKi"/>
+                            <constraint firstAttribute="trailing" secondItem="ZcS-sI-BKA" secondAttribute="trailing" constant="10" id="Mu3-fS-Sjm"/>
+                            <constraint firstItem="7dn-QA-EB2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="Rz9-l8-2S2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="neB-V0-WaR" secondAttribute="trailing" constant="150" id="U6k-So-77E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yvl-nW-lYY" secondAttribute="trailing" constant="40" id="V2x-yw-ahr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="COv-Ry-Df1" secondAttribute="bottom" constant="50" id="WS1-JR-eUZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7dn-QA-EB2" secondAttribute="trailing" constant="110" id="YIE-Uw-5OF"/>
+                            <constraint firstItem="neB-V0-WaR" firstAttribute="top" secondItem="ZcS-sI-BKA" secondAttribute="bottom" constant="65.666666666666657" id="e5s-PG-m7W"/>
+                            <constraint firstItem="7dn-QA-EB2" firstAttribute="top" secondItem="neB-V0-WaR" secondAttribute="bottom" constant="50" id="fpa-Uw-Hc9"/>
+                            <constraint firstItem="HMs-gF-1RT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="hKI-AP-hyw"/>
+                            <constraint firstItem="Yvl-nW-lYY" firstAttribute="top" secondItem="7dn-QA-EB2" secondAttribute="bottom" constant="47" id="q9D-09-MNd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HMs-gF-1RT" secondAttribute="bottom" constant="50" id="r1G-eU-2Ed"/>
+                            <constraint firstItem="ZcS-sI-BKA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="v4j-QJ-gUK"/>
+                            <constraint firstItem="ZcS-sI-BKA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="zF2-VI-izR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ufb-1O-ZCC"/>
+                    <connections>
+                        <outlet property="deadLetters" destination="HMs-gF-1RT" id="zjP-X6-osx"/>
+                        <outlet property="textField" destination="7dn-QA-EB2" id="JYG-ZW-jcv"/>
+                        <outletCollection property="boardOfTiles" destination="Tdk-5S-Epe" collectionClass="NSMutableArray" id="rJb-SC-SnV"/>
+                        <outletCollection property="boardOfTiles" destination="xcd-nT-Heu" collectionClass="NSMutableArray" id="mG0-mm-eaW"/>
+                        <outletCollection property="boardOfTiles" destination="eRr-Cf-FhU" collectionClass="NSMutableArray" id="ANL-bF-Ze9"/>
+                        <outletCollection property="boardOfTiles" destination="RVZ-7f-unH" collectionClass="NSMutableArray" id="3vY-n4-n9c"/>
+                        <outletCollection property="boardOfTiles" destination="DNC-kL-W1U" collectionClass="NSMutableArray" id="UOC-6e-hgO"/>
+                        <outletCollection property="boardOfTiles" destination="xMa-Mr-HP4" collectionClass="NSMutableArray" id="ymL-pO-FKW"/>
+                        <outletCollection property="boardOfTiles" destination="RQR-eK-RZd" collectionClass="NSMutableArray" id="qIg-wi-ZZF"/>
+                        <outletCollection property="boardOfTiles" destination="RHl-bB-Woh" collectionClass="NSMutableArray" id="53C-l1-LkU"/>
+                        <outletCollection property="boardOfTiles" destination="3SZ-e3-TIE" collectionClass="NSMutableArray" id="wwV-Od-nVn"/>
+                        <outletCollection property="boardOfTiles" destination="0CC-uG-sWz" collectionClass="NSMutableArray" id="K2Q-bq-Jcp"/>
+                        <outletCollection property="boardOfTiles" destination="Zmg-vE-WMd" collectionClass="NSMutableArray" id="amT-VX-QCF"/>
+                        <outletCollection property="boardOfTiles" destination="li6-ZJ-j4Q" collectionClass="NSMutableArray" id="kQ7-3i-Dcn"/>
+                        <outletCollection property="boardOfTiles" destination="hVf-Xd-0Si" collectionClass="NSMutableArray" id="Qb8-hC-upI"/>
+                        <outletCollection property="boardOfTiles" destination="bwQ-QM-0hO" collectionClass="NSMutableArray" id="8XG-nP-BlI"/>
+                        <outletCollection property="boardOfTiles" destination="2Fg-LH-452" collectionClass="NSMutableArray" id="Zln-45-Sd9"/>
+                        <outletCollection property="boardOfTiles" destination="rnv-ve-Vb1" collectionClass="NSMutableArray" id="rxb-yf-m3c"/>
+                        <outletCollection property="boardOfTiles" destination="3RJ-fn-ILQ" collectionClass="NSMutableArray" id="180-YT-FfG"/>
+                        <outletCollection property="boardOfTiles" destination="jzN-II-229" collectionClass="NSMutableArray" id="BNt-jz-BJH"/>
+                        <outletCollection property="boardOfTiles" destination="C73-4f-naJ" collectionClass="NSMutableArray" id="rAe-tP-vNt"/>
+                        <outletCollection property="boardOfTiles" destination="gHj-3y-xn2" collectionClass="NSMutableArray" id="cE5-AJ-Uva"/>
+                        <outletCollection property="boardOfTiles" destination="aAn-NL-Kia" collectionClass="NSMutableArray" id="fSF-Xb-J6L"/>
+                        <outletCollection property="boardOfTiles" destination="VMg-mx-iaG" collectionClass="NSMutableArray" id="ggI-y4-9C1"/>
+                        <outletCollection property="boardOfTiles" destination="KDt-Jh-yex" collectionClass="NSMutableArray" id="4wZ-pV-Wlu"/>
+                        <outletCollection property="boardOfTiles" destination="Zz3-yE-QGm" collectionClass="NSMutableArray" id="exh-AZ-8qf"/>
+                        <outletCollection property="boardOfTiles" destination="pEL-sR-SSR" collectionClass="NSMutableArray" id="GW9-Li-nsL"/>
+                        <outletCollection property="boardOfTiles" destination="7It-ZR-tso" collectionClass="NSMutableArray" id="hoZ-h6-fRJ"/>
+                        <outletCollection property="boardOfTiles" destination="nZd-yI-U0y" collectionClass="NSMutableArray" id="Spr-Ui-5cH"/>
+                        <outletCollection property="boardOfTiles" destination="Qib-Ak-yWV" collectionClass="NSMutableArray" id="yCt-VY-o5V"/>
+                        <outletCollection property="boardOfTiles" destination="Lnr-dH-74Z" collectionClass="NSMutableArray" id="IYc-N9-YFt"/>
+                        <outletCollection property="boardOfTiles" destination="CAm-3L-saP" collectionClass="NSMutableArray" id="gte-Oy-X6o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1993.1297709923663" y="3.5211267605633805"/>
+        </scene>
+        <!--ColorVC-->
+        <scene sceneID="D2G-cT-JPs">
+            <objects>
+                <viewController id="efW-4d-uL9" customClass="ColorVC" customModule="IP14_Wordle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kk4-Wg-Npt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6r-Jl-gY4">
+                                <rect key="frame" x="10" y="120" width="373" height="31"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K6O-PP-WVL">
+                                        <rect key="frame" x="0.0" y="0.0" width="324" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrN-Ti-v2t">
+                                                <rect key="frame" x="0.0" y="0.0" width="324" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="RPW-0P-iah">
+                                        <rect key="frame" x="324" y="0.0" width="49" height="31"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KPw-7N-KY8">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="modeChanged:" destination="efW-4d-uL9" eventType="valueChanged" id="zrB-a2-NgY"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n1T-RL-04u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K6r-Jl-gY4" firstAttribute="top" secondItem="n1T-RL-04u" secondAttribute="top" constant="120" id="G65-ko-SZJ"/>
+                            <constraint firstItem="K6r-Jl-gY4" firstAttribute="leading" secondItem="n1T-RL-04u" secondAttribute="leading" constant="10" id="MxB-gM-HVu"/>
+                            <constraint firstItem="n1T-RL-04u" firstAttribute="trailing" secondItem="K6r-Jl-gY4" secondAttribute="trailing" constant="10" id="qpG-Q6-DKi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7hc-8j-0ru"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FFM-v6-qka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2925.9541984732823" y="516.90140845070425"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="slu-96-UTi">
+            <objects>
+                <viewController id="mw6-Ob-2BI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1d7-Lx-Cm4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help_dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="1XX-0r-BHK">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jKm-ku-mry"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1XX-0r-BHK" firstAttribute="bottom" secondItem="jKm-ku-mry" secondAttribute="bottom" id="5DI-aE-gC8"/>
+                            <constraint firstItem="1XX-0r-BHK" firstAttribute="top" secondItem="jKm-ku-mry" secondAttribute="top" id="7Hl-rL-2GR"/>
+                            <constraint firstItem="1XX-0r-BHK" firstAttribute="trailing" secondItem="jKm-ku-mry" secondAttribute="trailing" id="AZQ-wT-Rh1"/>
+                            <constraint firstItem="1XX-0r-BHK" firstAttribute="leading" secondItem="jKm-ku-mry" secondAttribute="leading" id="bWP-Qe-eXo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ayP-f7-pBJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SOd-HQ-aia" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2925.9541984732823" y="-144.36619718309859"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="help_dark.png" width="576" height="577"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
